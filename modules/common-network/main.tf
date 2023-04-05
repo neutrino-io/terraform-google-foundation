@@ -1,9 +1,9 @@
-# VPC and Subnets
+# Development - VPC and Subnets
 module "vpc-host-dev" {
     source  = "terraform-google-modules/network/google"
     version = "~> 5.0"
 
-    project_id   = module.vpc-host-dev-as334-mq597.project_id
+    project_id   = var.vpc_host_dev_project_id
     network_name = "vpc-host-dev"
     routing_mode = "GLOBAL"
 
@@ -38,7 +38,7 @@ module "vpc-host-dev" {
 resource "google_compute_firewall" "vpc-host-dev-allow-icmp" {
   name      = "vpc-host-dev-allow-icmp"
   network   = module.vpc-host-dev.network_name
-  project   = module.vpc-host-dev-as334-mq597.project_id
+  project   = var.vpc_host_dev_project_id
   direction = "INGRESS"
   priority  = 10000
 
@@ -50,14 +50,13 @@ resource "google_compute_firewall" "vpc-host-dev-allow-icmp" {
   "10.128.0.0/9",
   ]
 }
-# NAT Router and config
 
-# VPC and Subnets
+# Non-Prod - VPC and Subnets
 module "vpc-host-nonprod" {
     source  = "terraform-google-modules/network/google"
     version = "~> 5.0"
 
-    project_id   = module.vpc-host-nonprod-qi298-dn548.project_id
+    project_id   = var.vpc_host_nonprod_project_id
     network_name = "vpc-host-nonprod"
     routing_mode = "GLOBAL"
 
@@ -91,7 +90,7 @@ module "vpc-host-nonprod" {
 resource "google_compute_firewall" "vpc-host-nonprod-allow-icmp" {
   name      = "vpc-host-nonprod-allow-icmp"
   network   = module.vpc-host-nonprod.network_name
-  project   = module.vpc-host-nonprod-qi298-dn548.project_id
+  project   = var.vpc_host_nonprod_project_id
   direction = "INGRESS"
   priority  = 10000
 
@@ -103,14 +102,14 @@ resource "google_compute_firewall" "vpc-host-nonprod-allow-icmp" {
   "10.128.0.0/9",
   ]
 }
-# NAT Router and config
 
-# VPC and Subnets
+
+# Production - VPC and Subnets
 module "vpc-host-prod" {
     source  = "terraform-google-modules/network/google"
     version = "~> 5.0"
 
-    project_id   = module.vpc-host-prod-qi298-dn548.project_id
+    project_id   = var.vpc_host_prod_project_id
     network_name = "vpc-host-prod"
     routing_mode = "GLOBAL"
 
@@ -145,7 +144,7 @@ module "vpc-host-prod" {
 resource "google_compute_firewall" "vpc-host-prod-allow-icmp" {
   name      = "vpc-host-prod-allow-icmp"
   network   = module.vpc-host-prod.network_name
-  project   = module.vpc-host-prod-qi298-dn548.project_id
+  project   = var.vpc_host_prod_project_id
   direction = "INGRESS"
   priority  = 10000
 

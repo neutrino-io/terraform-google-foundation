@@ -1,4 +1,4 @@
-module "foundation" {
+module "google_foundation" {
   source                     = "../../providers/google/foundation"
   billing_account            = var.billing_account
   org_id                     = var.org_id
