@@ -4,7 +4,7 @@
 # Neutrino Platform Builder - GCP Foundation
 
 ## Pre Requisite
-- Ensure proper Terraform workspace is selected or created
+- Complete setup of Google Cloud Identity and organization
 - Login to GCP from CLI tool using `gcloud auth application-default login`
 
 
