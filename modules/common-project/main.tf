@@ -18,7 +18,7 @@ module "logging" {
   name       = "logging"
   project_id = "logging-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   billing_account = var.billing_account
 }
@@ -30,7 +30,7 @@ module "monitoring-dev" {
   name       = "monitoring-dev"
   project_id = "monitoring-dev-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   billing_account = var.billing_account
 }
@@ -42,7 +42,7 @@ module "monitoring-nonprod" {
   name       = "monitoring-nonprod"
   project_id = "monitoring-nonprod-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   billing_account = var.billing_account
 }
@@ -54,7 +54,7 @@ module "monitoring-prod" {
   name       = "monitoring-prod"
   project_id = "monitoring-prod-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   billing_account = var.billing_account
 }
@@ -66,7 +66,7 @@ module "vpc-host-dev" {
   name       = "vpc-host-dev"
   project_id = "vpc-host-dev-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
   billing_account = var.billing_account
@@ -79,7 +79,7 @@ module "vpc-host-nonprod" {
   name       = "vpc-host-nonprod"
   project_id = "vpc-host-nonprod-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
   billing_account = var.billing_account
@@ -92,7 +92,7 @@ module "vpc-host-prod" {
   name       = "vpc-host-prod"
   project_id = "vpc-host-prod-${var.project_suffix_generation}-${random_string.project_suffix.result}"
   org_id     = var.org_id
-  folder_id  = google_folder.common.name
+  folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
   billing_account = var.billing_account

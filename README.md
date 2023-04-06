@@ -6,7 +6,11 @@
 ## Pre Requisite
 - Complete setup of Google Cloud Identity and organization
 - Login to GCP from CLI tool using `gcloud auth application-default login`
-
+- Need to add following role for the user that execute from local
+-- Organization Administrator
+-- Organization Policy Administrator
+-- Billing Account Administrator
+-- Folder Creator
 
 ## What's a Module?
 
