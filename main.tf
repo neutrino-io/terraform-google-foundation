@@ -1,11 +1,11 @@
 locals {
-  stack_name = var.stack_name != "" ? var.stack_name : "neutrino"
-  stack_label = var.stack_label != "" ? var.stack_label : "Neutrino"
-  stack_domain = var.stack_domain != "" ? var.stack_domain : "neutrino.sh"
-
+  org_domain = var.org_domain != "" ? var.org_domain : "neutrino.sh"
   env_name_dev = "develop"
   env_name_stag = "staging"
   env_name_prod = "production"
+
+  stack_name = var.stack_name != "" ? var.stack_name : "neutrino"
+  stack_label = var.stack_label != "" ? var.stack_label : "Neutrino"
 
   project_name_prefix_dev = "${local.stack_name}-${local.env_name_dev}"
   project_name_prefix_stag = "${local.stack_name}-${local.env_name_stag}"
@@ -79,7 +79,7 @@ module "foundation-stack-folder" {
   source                  = "./modules/folder"
   org_id                  = var.org_id
   app_org_label           = local.stack_label
-  iam_developer_principle = "group:gcp-organization-admins@${local.stack_domain}"
+  iam_developer_principle = "group:gcp-organization-admins@${local.org_domain}"
 }
 
 # Stack Development Project
@@ -91,7 +91,7 @@ module "foundation-stack-project-develop" {
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder[count.index].folder-development.id
   billing_account             = var.billing_account
-  iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
+  iam_impersonation_principle = "group:gcp-developers@${local.org_domain}"
 
   depends_on = [
     module.foundation-stack-folder
@@ -107,7 +107,7 @@ module "foundation-stack-project-staging" {
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder[count.index].folder-non-production.id
   billing_account             = var.billing_account
-  iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
+  iam_impersonation_principle = "group:gcp-developers@${local.org_domain}"
 
   depends_on = [
     module.foundation-stack-folder
@@ -123,7 +123,7 @@ module "foundation-stack-project-production" {
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder[count.index].folder-production.id
   billing_account             = var.billing_account
-  iam_impersonation_principle = "group:gcp-organization-admins@${local.stack_domain}"
+  iam_impersonation_principle = "group:gcp-organization-admins@${local.org_domain}"
 
   depends_on = [
     module.foundation-stack-folder

@@ -8,6 +8,11 @@ variable "org_id" {
   type        = string
 }
 
+variable "org_domain" {
+  description = "The domain of the organization"
+  type        = string
+}
+
 variable "iam_billing_principal" {
   description = "The principal to grant billing access to"
   type        = string
@@ -44,12 +49,6 @@ variable "stack_description" {
 
 variable "stack_label" {
   description = "The label of the default stack"
-  type        = string
-  default = ""
-}
-
-variable "stack_domain" {
-  description = "The domain of the default stack"
   type        = string
   default = ""
 }
