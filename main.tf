@@ -34,7 +34,7 @@ module "organization-iam" {
 
 # Common Folder
 resource "google_folder" "common" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_common_stack ? 1 : 0
 
   display_name = "Common"
   parent       = "organizations/${var.org_id}"
@@ -46,7 +46,7 @@ resource "google_folder" "common" {
 
 # Common Project
 module "common-project" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_common_stack ? 1 : 0
 
   source = "./modules/common-project"
   org_id = var.org_id
@@ -60,7 +60,7 @@ module "common-project" {
 
 # Common Network
 module "common-network" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_common_stack ? 1 : 0
 
   source = "./modules/common-network"
   vpc_host_dev_project_id = module.common-project[count.index].vpc_host_dev_project_id
