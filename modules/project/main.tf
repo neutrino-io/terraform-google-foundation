@@ -1,3 +1,8 @@
+locals {
+  sa_provisioner_id = "provisioner"
+  sa_provisioner_principle = "serviceAccount:${local.sa_provisioner_id}@${var.project_id}.iam.gserviceaccount.com"
+}
+
 module "app_project" {
   source = "terraform-google-modules/project-factory/google"
 
@@ -10,7 +15,7 @@ module "app_project" {
 }
 
 resource "google_service_account" "service_account_provisioner" {
-  account_id   = "provisioner"
+  account_id   = local.sa_provisioner_id
   display_name = "Cloud Provisioner"
   project      = module.app_project.project_id
 

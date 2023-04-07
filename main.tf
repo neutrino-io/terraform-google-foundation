@@ -1,3 +1,25 @@
+resource "random_string" "project_app_suffix" {
+  length  = 5
+  special = false
+  upper   = false
+}
+
+locals {
+  stack_name = var.stack_name ? var.stack_name : "neutrino"
+  stack_label = var.stack_label ? var.stack_label : "Neutrino"
+  stack_domain = var.stack_domain ? var.stack_domain : "neutrino.sh"
+
+  env_name_dev = "develop"
+  env_name_stag = "staging"
+  env_name_prod = "production"
+
+  project_id_suffix = "g1-${random_string.project_app_suffix.result}"
+  project_name_prefix_dev = "${local.stack_name}-${local.env_name_dev}"
+  project_name_prefix_stag = "${local.stack_name}-${local.env_name_stag}"
+  project_name_prefix_prod = "${local.stack_name}-${local.env_name_prod}"
+}
+
+# Organization IAM
 module "organization-iam" {
   source  = "terraform-google-modules/iam/google//modules/organizations_iam"
   version = "~> 7.4"
@@ -17,9 +39,10 @@ module "organization-iam" {
   }
 }
 
-
 # Common Folder
 resource "google_folder" "common" {
+  count = var.enable_default_stack ? 1 : 0
+
   display_name = "Common"
   parent       = "organizations/${var.org_id}"
 
@@ -30,6 +53,8 @@ resource "google_folder" "common" {
 
 # Common Project
 module "common-project" {
+  count = var.enable_default_stack ? 1 : 0
+
   source = "./modules/common-project"
   org_id = var.org_id
   billing_account = var.billing_account
@@ -42,6 +67,8 @@ module "common-project" {
 
 # Common Network
 module "common-network" {
+  count = var.enable_default_stack ? 1 : 0
+
   source = "./modules/common-network"
   vpc_host_dev_project_id = module.common-project.vpc_host_dev_project_id
   vpc_host_nonprod_project_id = module.common-project.vpc_host_nonprod_project_id
@@ -49,5 +76,66 @@ module "common-network" {
 
   depends_on = [
     module.common-project
+  ]
+}
+
+# Stack Folder
+module "foundation-stack-folder" {
+  count = var.enable_default_stack ? 1 : 0
+
+  source                  = "./modules/folder"
+  org_id                  = var.org_id
+  app_org_label           = local.stack_label
+  iam_developer_principle = "group:gcp-organization-admins@${local.stack_domain}"
+}
+
+# Stack Development Project
+module "foundation-stack-project-develop" {
+  count = var.enable_default_stack ? 1 : 0
+  source = "./modules/project"
+
+  name                        = local.project_name_prefix_dev
+  project_id                  = "${local.project_name_prefix_dev}-${local.project_id_suffix}"
+  org_id                      = var.org_id
+  folder_id                   = module.foundation-stack-folder.folder-development.id
+  billing_account             = var.billing_account
+  iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
+
+  depends_on = [
+    module.foundation-stack-folder
+  ]
+}
+
+# Stack Staging Project
+module "foundation-stack-project-staging" {
+  count = var.enable_default_stack ? 1 : 0
+  source = "./modules/project"
+
+  name                        = local.project_name_prefix_stag
+  project_id                  = "${local.project_name_prefix_stag}-${local.project_id_suffix}"
+  org_id                      = var.org_id
+  folder_id                   = module.foundation-stack-folder.folder-non-production.id
+  billing_account             = var.billing_account
+  iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
+
+  depends_on = [
+    module.foundation-stack-folder
+  ]
+}
+
+# Stack Production Project
+module "foundation-stack-project-production" {
+  count = var.enable_default_stack ? 1 : 0
+  source = "./modules/project"
+
+  name                        = local.project_name_prefix_prod
+  project_id                  = "${local.project_name_prefix_prod}-${local.project_id_suffix}"
+  org_id                      = var.org_id
+  folder_id                   = module.foundation-stack-folder.folder-production.id
+  billing_account             = var.billing_account
+  iam_impersonation_principle = "group:gcp-organization-admins@${local.stack_domain}"
+
+  depends_on = [
+    module.foundation-stack-folder
   ]
 }

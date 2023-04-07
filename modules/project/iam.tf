@@ -5,7 +5,6 @@ module "service_account-iam-bindings" {
   service_accounts = [
     google_service_account.service_account_provisioner.email
   ]
-
   project = var.project_id
   mode    = "additive"
 
@@ -37,46 +36,51 @@ module "service_account-project-iam-bindings" {
 
   bindings = {
     "roles/resourcemanager.projectIamAdmin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/identityplatform.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/serviceusage.serviceUsageAdmin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/serviceusage.serviceUsageConsumer" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/iam.serviceAccountAdmin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/container.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/compute.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/storage.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/cloudkms.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/artifactregistry.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/dns.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/firebase.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/appengine.appAdmin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
     "roles/iap.admin" = [
-      "serviceAccount:${google_service_account.service_account_provisioner.email}",
+      local.sa_provisioner_principle,
     ],
   }
+
+  depends_on = [
+    module.app_project,
+    google_service_account.service_account_provisioner
+  ]
 }
