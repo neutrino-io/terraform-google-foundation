@@ -1,6 +1,14 @@
+resource "random_string" "project_app_suffix" {
+  length  = 5
+  special = false
+  upper   = false
+}
+
 locals {
+  project_id_suffix = "g1-${random_string.project_app_suffix.result}"
+  project_id = "${var.name}-${local.project_id_suffix}"
   sa_provisioner_id = "provisioner"
-  sa_provisioner_principle = "serviceAccount:${local.sa_provisioner_id}@${var.project_id}.iam.gserviceaccount.com"
+  sa_provisioner_principle = "serviceAccount:${local.sa_provisioner_id}@${local.project_id}.iam.gserviceaccount.com"
 }
 
 module "app_project" {
@@ -9,7 +17,7 @@ module "app_project" {
   org_id          = var.org_id
   folder_id       = var.folder_id
   name            = var.name
-  project_id      = var.project_id
+  project_id      = local.project_id
   billing_account = var.billing_account
   activate_apis   = var.activate_apis
 }

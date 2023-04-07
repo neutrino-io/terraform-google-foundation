@@ -5,7 +5,7 @@ module "service_account-iam-bindings" {
   service_accounts = [
     google_service_account.service_account_provisioner.email
   ]
-  project = var.project_id
+  project = module.app_project.project_id
   mode    = "additive"
 
   bindings = {
@@ -24,6 +24,7 @@ module "service_account-iam-bindings" {
   }
 
   depends_on = [
+    module.app_project,
     google_service_account.service_account_provisioner
   ]
 }
@@ -31,8 +32,9 @@ module "service_account-iam-bindings" {
 module "service_account-project-iam-bindings" {
   source  = "terraform-google-modules/iam/google//modules/projects_iam"
   version = "~> 7.4"
-  projects = [var.project_id]
-  mode   = "additive"
+
+  projects = [module.app_project.project_id]
+  mode   = "authoritative"
 
   bindings = {
     "roles/resourcemanager.projectIamAdmin" = [

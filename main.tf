@@ -1,19 +1,12 @@
-resource "random_string" "project_app_suffix" {
-  length  = 5
-  special = false
-  upper   = false
-}
-
 locals {
-  stack_name = var.stack_name ? var.stack_name : "neutrino"
-  stack_label = var.stack_label ? var.stack_label : "Neutrino"
-  stack_domain = var.stack_domain ? var.stack_domain : "neutrino.sh"
+  stack_name = var.stack_name != "" ? var.stack_name : "neutrino"
+  stack_label = var.stack_label != "" ? var.stack_label : "Neutrino"
+  stack_domain = var.stack_domain != "" ? var.stack_domain : "neutrino.sh"
 
   env_name_dev = "develop"
   env_name_stag = "staging"
   env_name_prod = "production"
 
-  project_id_suffix = "g1-${random_string.project_app_suffix.result}"
   project_name_prefix_dev = "${local.stack_name}-${local.env_name_dev}"
   project_name_prefix_stag = "${local.stack_name}-${local.env_name_stag}"
   project_name_prefix_prod = "${local.stack_name}-${local.env_name_prod}"
@@ -58,7 +51,7 @@ module "common-project" {
   source = "./modules/common-project"
   org_id = var.org_id
   billing_account = var.billing_account
-  folder_common_id = google_folder.common.name
+  folder_common_id = google_folder.common[count.index].name
 
   depends_on = [
     google_folder.common
@@ -70,9 +63,9 @@ module "common-network" {
   count = var.enable_default_stack ? 1 : 0
 
   source = "./modules/common-network"
-  vpc_host_dev_project_id = module.common-project.vpc_host_dev_project_id
-  vpc_host_nonprod_project_id = module.common-project.vpc_host_nonprod_project_id
-  vpc_host_prod_project_id = module.common-project.vpc_host_prod_project_id
+  vpc_host_dev_project_id = module.common-project[count.index].vpc_host_dev_project_id
+  vpc_host_nonprod_project_id = module.common-project[count.index].vpc_host_nonprod_project_id
+  vpc_host_prod_project_id = module.common-project[count.index].vpc_host_prod_project_id
 
   depends_on = [
     module.common-project
@@ -95,9 +88,8 @@ module "foundation-stack-project-develop" {
   source = "./modules/project"
 
   name                        = local.project_name_prefix_dev
-  project_id                  = "${local.project_name_prefix_dev}-${local.project_id_suffix}"
   org_id                      = var.org_id
-  folder_id                   = module.foundation-stack-folder.folder-development.id
+  folder_id                   = module.foundation-stack-folder[count.index].folder-development.id
   billing_account             = var.billing_account
   iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
 
@@ -112,9 +104,8 @@ module "foundation-stack-project-staging" {
   source = "./modules/project"
 
   name                        = local.project_name_prefix_stag
-  project_id                  = "${local.project_name_prefix_stag}-${local.project_id_suffix}"
   org_id                      = var.org_id
-  folder_id                   = module.foundation-stack-folder.folder-non-production.id
+  folder_id                   = module.foundation-stack-folder[count.index].folder-non-production.id
   billing_account             = var.billing_account
   iam_impersonation_principle = "group:gcp-developers@${local.stack_domain}"
 
@@ -129,9 +120,8 @@ module "foundation-stack-project-production" {
   source = "./modules/project"
 
   name                        = local.project_name_prefix_prod
-  project_id                  = "${local.project_name_prefix_prod}-${local.project_id_suffix}"
   org_id                      = var.org_id
-  folder_id                   = module.foundation-stack-folder.folder-production.id
+  folder_id                   = module.foundation-stack-folder[count.index].folder-production.id
   billing_account             = var.billing_account
   iam_impersonation_principle = "group:gcp-organization-admins@${local.stack_domain}"
 

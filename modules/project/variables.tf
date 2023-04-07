@@ -13,11 +13,6 @@ variable "name" {
   type        = string
 }
 
-variable "project_id" {
-  description = "The ID of the project"
-  type        = string
-}
-
 variable "billing_account" {
   description = "The ID of the billing account to associate this project with"
   type        = string
