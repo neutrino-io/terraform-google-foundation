@@ -46,7 +46,7 @@ resource "google_folder" "common" {
 
 # Common Project
 module "common-project" {
-  count = var.enable_common_stack ? 1 : 0
+  count = var.enable_common_stack && length(google_folder.common) > 0 ? 1 : 0
 
   source = "./modules/common-project"
   org_id = var.org_id
@@ -60,7 +60,7 @@ module "common-project" {
 
 # Common Network
 module "common-network" {
-  count = var.enable_common_stack ? 1 : 0
+  count = var.enable_common_stack && length(module.common-project) > 0 ? 1 : 0
 
   source = "./modules/common-network"
   vpc_host_dev_project_id = module.common-project[count.index].vpc_host_dev_project_id
@@ -84,7 +84,7 @@ module "foundation-stack-folder" {
 
 # Stack Development Project
 module "foundation-stack-project-develop" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_default_stack && length(module.foundation-stack-folder) > 0 ? 1 : 0
   source = "./modules/project"
 
   name                        = local.project_name_prefix_dev
@@ -100,7 +100,7 @@ module "foundation-stack-project-develop" {
 
 # Stack Staging Project
 module "foundation-stack-project-staging" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_default_stack && length(module.foundation-stack-folder) > 0 ? 1 : 0
   source = "./modules/project"
 
   name                        = local.project_name_prefix_stag
@@ -116,7 +116,7 @@ module "foundation-stack-project-staging" {
 
 # Stack Production Project
 module "foundation-stack-project-production" {
-  count = var.enable_default_stack ? 1 : 0
+  count = var.enable_default_stack && length(module.foundation-stack-folder) > 0 ? 1 : 0
   source = "./modules/project"
 
   name                        = local.project_name_prefix_prod
@@ -128,4 +128,30 @@ module "foundation-stack-project-production" {
   depends_on = [
     module.foundation-stack-folder
   ]
+}
+
+
+# Outputs
+output "common-project" {
+  value = module.common-project
+}
+
+output "common-network" {
+  value = module.common-network
+}
+
+output "foundation-stack-folder" {
+  value = module.foundation-stack-folder
+}
+
+output "foundation-stack-project-develop" {
+  value = module.foundation-stack-project-develop
+}
+
+output "foundation-stack-project-staging" {
+  value = module.foundation-stack-project-staging
+}
+
+output "foundation-stack-project-production" {
+  value = module.foundation-stack-project-production
 }
