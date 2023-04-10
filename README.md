@@ -4,13 +4,48 @@
 # Neutrino Platform Builder - GCP Foundation
 
 ## Pre Requisite
-- Complete setup of Google Cloud Identity and organization
-- Login to GCP from CLI tool using `gcloud auth application-default login`
-- Need to add following role for the user that execute from local
--- Organization Administrator
--- Organization Policy Administrator
--- Billing Account Administrator
--- Folder Creator
+- Complete setup of Google Cloud Identity and organization.
+- Login to GCP from CLI tool using `gcloud auth application-default login` before running terraform.
+- Need to add following role for the user that execute from local.
+  - Organization Administrator
+  - Organization Policy Administrator
+  - Billing Account Administrator
+  - Folder Creator
+
+## Post Deployment
+- Manually enable the Identity Platform API in the GCP console at https://console.cloud.google.com/customer-identity
+- Running post foundation setup script `PROJECT_ID=neutrino-develop-g1-f1f1f ACCOUNT_EMAIL=user@neutrino.sh IAP_SUPPORT_EMAIL=support@neutrino.sh APP_ORG_LABEL="Neutrino" ./foundation-post.sh`
+
+## Deploying in Terraform Cloud
+
+Neutrino Terraform module is using GCP impersonation to deploy the resources. Running in Terraform Cloud requires a setup
+of Google Workload Identity Federation and integrate with Terraform OIDC. Typical process is as follows:
+
+- Configuring Google Workload Identity Federation with a require pool and provider.
+- Granting the Terraform Cloud service account access to the required pool.
+- Configuring Terraform Cloud to use the OIDC provider.
+
+Please follow the instructions in the following link for the detail process. https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/gcp-configuration
+
+## Problem & Solutions
+
+### Error reading or editing resources
+
+```
+Error: Error when reading or editing Resource "folder \"folders/$folder_id\"" with IAM Member: Role "roles/resourcemanager.projectCreator" Member "group:org-admins@example.net": Error retrieving IAM policy for folder "folders/$folder_id": Post "https://cloudresourcemanager.googleapis.com/v2/folders/$folder_id:getIamPolicy?alt=json&prettyPrint=false": oauth2: cannot fetch token: 400 Bad Request
+Response: {
+"error": "invalid_grant",
+"error_description": "reauth related error (invalid_rapt)",
+"error_subtype": "invalid_rapt"
+}
+```
+
+The error might happen due to the application default credential has been overwritten by the service account credential.
+To fix this issue, please run the following command to reset the application default credential
+
+```
+gcloud auth application-default login
+```
 
 ## What's a Module?
 
@@ -27,8 +62,7 @@ a version number bump.
 ## Who maintains this Module?
 
 This Module and its Submodules are maintained by [Nematix](https://nematix.com/). If you are looking for help or
-commercial support, send an email to
-[support@nematix.com](mailto:support@nematix.com?Subject=Terraform%20Modules).
+commercial support, send an email to [support@nematix.com](mailto:support@nematix.com?Subject=Terraform%20Modules).
 
 Nematix can help with:
 
