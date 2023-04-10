@@ -22,7 +22,7 @@ module "service_account-iam-bindings" {
     ],
 
     "roles/iam.workloadIdentityUser" = [
-      "principal://iam.googleapis.com/projects/${module.app_project.project_number}/locations/global/workloadIdentityPools/defaulr/subject/sub"
+      "principal://iam.googleapis.com/projects/${module.app_project.project_number}/locations/global/workloadIdentityPools/default/subject/sub"
     ],
   }
 
