@@ -22,7 +22,7 @@ module "service_account-iam-bindings" {
     ],
 
     "roles/iam.workloadIdentityUser" = [
-      "principal://iam.googleapis.com/projects/${module.app_project.project_number}/locations/global/workloadIdentityPools/default/subject/sub"
+      "principalSet://iam.googleapis.com/projects/${module.app_project.project_number}/locations/global/workloadIdentityPools/default/*"
     ],
   }
 
@@ -80,6 +80,9 @@ module "service_account-project-iam-bindings" {
       local.sa_provisioner_principle,
     ],
     "roles/iap.admin" = [
+      local.sa_provisioner_principle,
+    ],
+    "roles/iam.workloadIdentityUser" = [
       local.sa_provisioner_principle,
     ],
   }
