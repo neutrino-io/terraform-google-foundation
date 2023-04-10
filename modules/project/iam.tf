@@ -21,6 +21,9 @@ module "service_account-iam-bindings" {
       var.iam_impersonation_principle,
     ],
 
+    "roles/iam.workloadIdentityUser" = [
+      "principal://iam.googleapis.com/projects/${module.app_project.project_number}/locations/global/workloadIdentityPools/defaulr/subject/sub"
+    ],
   }
 
   depends_on = [
@@ -77,9 +80,6 @@ module "service_account-project-iam-bindings" {
       local.sa_provisioner_principle,
     ],
     "roles/iap.admin" = [
-      local.sa_provisioner_principle,
-    ],
-    "roles/iam.workloadIdentityUser" = [
       local.sa_provisioner_principle,
     ],
   }
