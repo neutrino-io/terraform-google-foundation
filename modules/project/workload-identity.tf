@@ -10,7 +10,7 @@ resource "google_iam_workload_identity_pool_provider" "terraform-cloud" {
   project                            = module.app_project.project_id
   workload_identity_pool_id          = google_iam_workload_identity_pool.default.workload_identity_pool_id
   workload_identity_pool_provider_id = "terraform-cloud"
-  display_name                       = "OIDC identity pool provider for Terraform Cloud"
+  display_name                       = "OIDC identity pool for Terraform"
   attribute_condition                = "assertion.terraform_organization_id == \"${var.terraform_organization_id}\""
   attribute_mapping                  = {
     "google.subject"                        = "assertion.sub"
