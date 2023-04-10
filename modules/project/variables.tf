@@ -46,3 +46,15 @@ variable "activate_apis" {
     "iap.googleapis.com"
   ]
 }
+
+variable "enable_workload_id_terraform" {
+  description = "Enable Workload Identity for Terraform"
+  type        = bool
+  default     = false
+}
+
+variable "terraform_organization_id" {
+  description = "The organization ID for the associated services"
+  type        = string
+  default     = ""
+}

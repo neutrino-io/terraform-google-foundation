@@ -32,7 +32,6 @@ resource "google_service_account" "service_account_provisioner" {
   ]
 }
 
-
 # Outputs
 output "project_id" {
   value       = module.app_project.project_id
