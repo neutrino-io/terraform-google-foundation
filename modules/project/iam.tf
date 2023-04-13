@@ -3,10 +3,10 @@ module "service_account-iam-bindings" {
   version = "~> 7.4"
 
   service_accounts = [
-    google_service_account.service_account_provisioner.email
+    local.sa_provisioner_principle
   ]
   project = module.app_project.project_id
-  mode    = "additive"
+  mode    = "authoritative"
 
   bindings = {
     "roles/iam.serviceAccountKeyAdmin" = [
