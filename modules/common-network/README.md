@@ -3,6 +3,26 @@
 
 # Neutrino Platform Builder - GCP Foundation Common Network
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 4.61.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_vpc_host_dev_project_id"></a> [vpc\_host\_dev\_project\_id](#input\_vpc\_host\_dev\_project\_id) | The project ID where the VPC and subnets will be created. | `string` | n/a | yes |
+| <a name="input_vpc_host_nonprod_project_id"></a> [vpc\_host\_nonprod\_project\_id](#input\_vpc\_host\_nonprod\_project\_id) | The project ID where the VPC and subnets will be created. | `string` | n/a | yes |
+| <a name="input_vpc_host_prod_project_id"></a> [vpc\_host\_prod\_project\_id](#input\_vpc\_host\_prod\_project\_id) | The project ID where the VPC and subnets will be created. | `string` | n/a | yes |
+
+## Outputs
+
+No outputs.
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Who maintains this Module?
 
 This Module and its Submodules are maintained by [Nematix](https://nematix.com/). If you are looking for help or

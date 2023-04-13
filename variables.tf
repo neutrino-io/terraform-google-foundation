@@ -26,29 +26,29 @@ variable "iam_organization_principal" {
 variable "enable_common_stack" {
   description = "Whether to enable the common application stack"
   type        = bool
-  default = true
+  default     = true
 }
 
 variable "enable_default_stack" {
   description = "Whether to enable the default application stack"
   type        = bool
-  default = false
+  default     = false
 }
 
 variable "stack_name" {
   description = "The name of the default stack"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "stack_description" {
   description = "The description of the default stack"
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "stack_label" {
   description = "The label of the default stack"
   type        = string
-  default = ""
+  default     = ""
 }

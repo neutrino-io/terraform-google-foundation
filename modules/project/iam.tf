@@ -37,7 +37,7 @@ module "service_account-project-iam-bindings" {
   version = "~> 7.4"
 
   projects = [module.app_project.project_id]
-  mode   = "authoritative"
+  mode     = "authoritative"
 
   bindings = {
     "roles/resourcemanager.projectIamAdmin" = [

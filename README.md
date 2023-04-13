@@ -27,6 +27,40 @@ of Google Workload Identity Federation and integrate with Terraform OIDC. Typica
 
 Please follow the instructions in the following link for the detail process. https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/gcp-configuration
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 4.61.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The ID of the billing account to associate projects with | `string` | n/a | yes |
+| <a name="input_enable_common_stack"></a> [enable\_common\_stack](#input\_enable\_common\_stack) | Whether to enable the common application stack | `bool` | `true` | no |
+| <a name="input_enable_default_stack"></a> [enable\_default\_stack](#input\_enable\_default\_stack) | Whether to enable the default application stack | `bool` | `false` | no |
+| <a name="input_iam_billing_principal"></a> [iam\_billing\_principal](#input\_iam\_billing\_principal) | The principal to grant billing access to | `string` | n/a | yes |
+| <a name="input_iam_organization_principal"></a> [iam\_organization\_principal](#input\_iam\_organization\_principal) | The principal to grant organization access to | `string` | n/a | yes |
+| <a name="input_org_domain"></a> [org\_domain](#input\_org\_domain) | The domain of the organization | `string` | n/a | yes |
+| <a name="input_org_id"></a> [org\_id](#input\_org\_id) | The organization id for the associated resources | `string` | n/a | yes |
+| <a name="input_stack_description"></a> [stack\_description](#input\_stack\_description) | The description of the default stack | `string` | `""` | no |
+| <a name="input_stack_label"></a> [stack\_label](#input\_stack\_label) | The label of the default stack | `string` | `""` | no |
+| <a name="input_stack_name"></a> [stack\_name](#input\_stack\_name) | The name of the default stack | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_common-network"></a> [common-network](#output\_common-network) | n/a |
+| <a name="output_common-project"></a> [common-project](#output\_common-project) | Outputs |
+| <a name="output_foundation-stack-folder"></a> [foundation-stack-folder](#output\_foundation-stack-folder) | n/a |
+| <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | n/a |
+| <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | n/a |
+| <a name="output_foundation-stack-project-staging"></a> [foundation-stack-project-staging](#output\_foundation-stack-project-staging) | n/a |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Problem & Solutions
 
 ### Error reading or editing resources

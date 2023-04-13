@@ -69,7 +69,7 @@ module "vpc-host-dev" {
   folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
-  billing_account = var.billing_account
+  billing_account                = var.billing_account
 }
 
 module "vpc-host-nonprod" {
@@ -82,7 +82,7 @@ module "vpc-host-nonprod" {
   folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
-  billing_account = var.billing_account
+  billing_account                = var.billing_account
 }
 
 module "vpc-host-prod" {
@@ -95,7 +95,7 @@ module "vpc-host-prod" {
   folder_id  = var.folder_common_id
 
   enable_shared_vpc_host_project = true
-  billing_account = var.billing_account
+  billing_account                = var.billing_account
 }
 
 # Outputs

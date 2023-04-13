@@ -5,12 +5,12 @@ resource "random_string" "project_app_suffix" {
 }
 
 locals {
-  org_domain = "nematix.com"
-  env_name_dev = "develop"
-  env_name_stag = "staging"
-  env_name_prod = "production"
-  project_id_suffix = "g1-${random_string.project_app_suffix.result}"
-  project_name_prefix_dev = "${var.app_org_id}-${local.env_name_dev}"
+  org_domain               = "nematix.com"
+  env_name_dev             = "develop"
+  env_name_stag            = "staging"
+  env_name_prod            = "production"
+  project_id_suffix        = "g1-${random_string.project_app_suffix.result}"
+  project_name_prefix_dev  = "${var.app_org_id}-${local.env_name_dev}"
   project_name_prefix_stag = "${var.app_org_id}-${local.env_name_stag}"
   project_name_prefix_prod = "${var.app_org_id}-${local.env_name_prod}"
 }
@@ -33,7 +33,6 @@ module "foundation-stack-project-develop" {
   source = "../../modules/project"
 
   name                        = local.project_name_prefix_dev
-  project_id                  = "${local.project_name_prefix_dev}-${local.project_id_suffix}"
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder.folder-development.id
   billing_account             = var.billing_account
@@ -52,7 +51,6 @@ module "foundation-stack-project-staging" {
   source = "../../modules/project"
 
   name                        = local.project_name_prefix_stag
-  project_id                  = "${local.project_name_prefix_stag}-${local.project_id_suffix}"
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder.folder-non-production.id
   billing_account             = var.billing_account
@@ -71,7 +69,6 @@ module "foundation-stack-project-production" {
   source = "../../modules/project"
 
   name                        = local.project_name_prefix_prod
-  project_id                  = "${local.project_name_prefix_prod}-${local.project_id_suffix}"
   org_id                      = var.org_id
   folder_id                   = module.foundation-stack-folder.folder-production.id
   billing_account             = var.billing_account

@@ -5,11 +5,11 @@ module "app-development-folder-iam" {
   folders = [google_folder.app-folder-development.name]
 
   bindings = {
-    
+
     "roles/compute.instanceAdmin.v1" = [
       var.iam_developer_principle,
     ]
-    
+
     "roles/container.admin" = [
       var.iam_developer_principle,
     ]
@@ -22,7 +22,7 @@ module "app-development-folder-iam" {
       var.iam_developer_principle,
     ]
 
-     "roles/bigquery.user" = [
+    "roles/bigquery.user" = [
       var.iam_developer_principle,
     ]
   }
@@ -36,15 +36,15 @@ module "app-non-production-folder-iam" {
   folders = [google_folder.app-folder-non-production.name]
 
   bindings = {
-    
+
     "roles/compute.instanceAdmin.v1" = [
       var.iam_developer_principle,
     ]
-    
+
     "roles/container.admin" = [
       var.iam_developer_principle,
     ]
-    
+
   }
 }
 

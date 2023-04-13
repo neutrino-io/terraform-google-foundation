@@ -5,9 +5,9 @@ resource "random_string" "project_app_suffix" {
 }
 
 locals {
-  project_id_suffix = "g1-${random_string.project_app_suffix.result}"
-  project_id = "${var.name}-${local.project_id_suffix}"
-  sa_provisioner_id = "provisioner"
+  project_id_suffix        = "g1-${random_string.project_app_suffix.result}"
+  project_id               = "${var.name}-${local.project_id_suffix}"
+  sa_provisioner_id        = "provisioner"
   sa_provisioner_principle = "serviceAccount:${local.sa_provisioner_id}@${local.project_id}.iam.gserviceaccount.com"
 }
 
