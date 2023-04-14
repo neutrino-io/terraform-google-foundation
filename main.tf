@@ -133,25 +133,31 @@ module "foundation-stack-project-production" {
 
 # Outputs
 output "common-project" {
-  value = module.common-project
+  value       = module.common-project
+  description = "The common project module resource."
 }
 
 output "common-network" {
-  value = module.common-network
+  value       = module.common-network
+  description = "The common network module resource."
 }
 
 output "foundation-stack-folder" {
-  value = module.foundation-stack-folder
+  value       = module.foundation-stack-folder
+  description = "The foundation stack folder module resource."
 }
 
 output "foundation-stack-project-develop" {
-  value = module.foundation-stack-project-develop
+  value       = module.foundation-stack-project-develop
+  description = "The foundation stack project for the development environment module resource."
 }
 
 output "foundation-stack-project-staging" {
-  value = module.foundation-stack-project-staging
+  value       = module.foundation-stack-project-staging
+  description = "The foundation stack project for the staging environment module resource."
 }
 
 output "foundation-stack-project-production" {
-  value = module.foundation-stack-project-production
+  value       = module.foundation-stack-project-production
+  description = "The foundation stack project for the production environment module resource."
 }

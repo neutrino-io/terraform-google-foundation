@@ -23,13 +23,13 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_logging_project_id"></a> [logging\_project\_id](#output\_logging\_project\_id) | Outputs |
-| <a name="output_monitoring_dev_project_id"></a> [monitoring\_dev\_project\_id](#output\_monitoring\_dev\_project\_id) | n/a |
-| <a name="output_monitoring_nonprod_project_id"></a> [monitoring\_nonprod\_project\_id](#output\_monitoring\_nonprod\_project\_id) | n/a |
-| <a name="output_monitoring_prod_project_id"></a> [monitoring\_prod\_project\_id](#output\_monitoring\_prod\_project\_id) | n/a |
-| <a name="output_vpc_host_dev_project_id"></a> [vpc\_host\_dev\_project\_id](#output\_vpc\_host\_dev\_project\_id) | n/a |
-| <a name="output_vpc_host_nonprod_project_id"></a> [vpc\_host\_nonprod\_project\_id](#output\_vpc\_host\_nonprod\_project\_id) | n/a |
-| <a name="output_vpc_host_prod_project_id"></a> [vpc\_host\_prod\_project\_id](#output\_vpc\_host\_prod\_project\_id) | n/a |
+| <a name="output_logging_project_id"></a> [logging\_project\_id](#output\_logging\_project\_id) | The project ID of the logging project. |
+| <a name="output_monitoring_dev_project_id"></a> [monitoring\_dev\_project\_id](#output\_monitoring\_dev\_project\_id) | The project ID of the monitoring development project. |
+| <a name="output_monitoring_nonprod_project_id"></a> [monitoring\_nonprod\_project\_id](#output\_monitoring\_nonprod\_project\_id) | The project ID of the monitoring non-production project. |
+| <a name="output_monitoring_prod_project_id"></a> [monitoring\_prod\_project\_id](#output\_monitoring\_prod\_project\_id) | The project ID of the monitoring production project. |
+| <a name="output_vpc_host_dev_project_id"></a> [vpc\_host\_dev\_project\_id](#output\_vpc\_host\_dev\_project\_id) | The project ID of the VPC host development project. |
+| <a name="output_vpc_host_nonprod_project_id"></a> [vpc\_host\_nonprod\_project\_id](#output\_vpc\_host\_nonprod\_project\_id) | The project ID of the VPC host non-production project. |
+| <a name="output_vpc_host_prod_project_id"></a> [vpc\_host\_prod\_project\_id](#output\_vpc\_host\_prod\_project\_id) | The project ID of the VPC host production project. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Who maintains this Module?

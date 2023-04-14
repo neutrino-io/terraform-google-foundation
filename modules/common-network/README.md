@@ -20,7 +20,11 @@
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_development_vpc"></a> [development\_vpc](#output\_development\_vpc) | Development VPC information |
+| <a name="output_nonprod_vpc"></a> [nonprod\_vpc](#output\_nonprod\_vpc) | Non-Prod VPC information |
+| <a name="output_production_vpc"></a> [production\_vpc](#output\_production\_vpc) | Production VPC information |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Who maintains this Module?

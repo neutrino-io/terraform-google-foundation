@@ -53,12 +53,12 @@ Please follow the instructions in the following link for the detail process. htt
 
 | Name | Description |
 |------|-------------|
-| <a name="output_common-network"></a> [common-network](#output\_common-network) | n/a |
-| <a name="output_common-project"></a> [common-project](#output\_common-project) | Outputs |
-| <a name="output_foundation-stack-folder"></a> [foundation-stack-folder](#output\_foundation-stack-folder) | n/a |
-| <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | n/a |
-| <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | n/a |
-| <a name="output_foundation-stack-project-staging"></a> [foundation-stack-project-staging](#output\_foundation-stack-project-staging) | n/a |
+| <a name="output_common-network"></a> [common-network](#output\_common-network) | The common network module resource. |
+| <a name="output_common-project"></a> [common-project](#output\_common-project) | The common project module resource. |
+| <a name="output_foundation-stack-folder"></a> [foundation-stack-folder](#output\_foundation-stack-folder) | The foundation stack folder module resource. |
+| <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | The foundation stack project for the development environment module resource. |
+| <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | The foundation stack project for the production environment module resource. |
+| <a name="output_foundation-stack-project-staging"></a> [foundation-stack-project-staging](#output\_foundation-stack-project-staging) | The foundation stack project for the staging environment module resource. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Problem & Solutions

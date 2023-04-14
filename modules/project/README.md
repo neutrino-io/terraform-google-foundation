@@ -28,11 +28,11 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | value of the project\_id |
-| <a name="output_project_name"></a> [project\_name](#output\_project\_name) | value of the project\_name |
-| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | value of the project\_number |
-| <a name="output_service_account_provisioner_email"></a> [service\_account\_provisioner\_email](#output\_service\_account\_provisioner\_email) | value of the service\_account\_provisioner\_email |
-| <a name="output_service_account_provisioner_id"></a> [service\_account\_provisioner\_id](#output\_service\_account\_provisioner\_id) | value of the service\_account\_provisioner\_id |
+| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The ID of the created project. |
+| <a name="output_project_name"></a> [project\_name](#output\_project\_name) | The name of the created project. |
+| <a name="output_project_number"></a> [project\_number](#output\_project\_number) | The number of the created project. |
+| <a name="output_service_account_provisioner_email"></a> [service\_account\_provisioner\_email](#output\_service\_account\_provisioner\_email) | The email of the service account provisioner. |
+| <a name="output_service_account_provisioner_id"></a> [service\_account\_provisioner\_id](#output\_service\_account\_provisioner\_id) | The ID of the service account provisioner. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Who maintains this Module?

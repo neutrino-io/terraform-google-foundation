@@ -22,9 +22,9 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_folder-development"></a> [folder-development](#output\_folder-development) | Outputs |
-| <a name="output_folder-non-production"></a> [folder-non-production](#output\_folder-non-production) | n/a |
-| <a name="output_folder-production"></a> [folder-production](#output\_folder-production) | n/a |
+| <a name="output_folder-development"></a> [folder-development](#output\_folder-development) | The Development folder resource. |
+| <a name="output_folder-non-production"></a> [folder-non-production](#output\_folder-non-production) | The Non-Production folder resource. |
+| <a name="output_folder-production"></a> [folder-production](#output\_folder-production) | The Production folder resource. |
 | <a name="output_iam-development"></a> [iam-development](#output\_iam-development) | Outputs for iam |
 | <a name="output_iam-non-production"></a> [iam-non-production](#output\_iam-non-production) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
