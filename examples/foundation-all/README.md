@@ -23,7 +23,13 @@ No providers.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_common-project-id"></a> [common-project-id](#output\_common-project-id) | The common project ID |
+| <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | The foundation stack project developer |
+| <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | The foundation stack project production |
+| <a name="output_foundation-stack-project-staging"></a> [foundation-stack-project-staging](#output\_foundation-stack-project-staging) | The foundation stack project staging |
+| <a name="output_org_id"></a> [org\_id](#output\_org\_id) | The organization ID |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## License

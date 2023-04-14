@@ -8,6 +8,6 @@ repos:
       args:
         - --args=--config=.config/.terraform-docs.yml
         - --hook-config=--create-file-if-not-exist=true
-#    - id: terraform_checkov
-#      args:
-#        - --args=--framework=terraform
+    - id: terraform_checkov
+      args:
+        - --args=--framework=terraform
