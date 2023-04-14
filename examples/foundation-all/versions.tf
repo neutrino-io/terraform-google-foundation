@@ -6,8 +6,9 @@ terraform {
       source  = "hashicorp/google"
       version = ">= 4.61"
     }
-  }
-  provider_meta "google" {
-    module_name = "blueprints/terraform/exported-krm/v0.1.0"
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 4.61"
+    }
   }
 }

@@ -41,12 +41,6 @@ variable "stack_name" {
   default     = ""
 }
 
-variable "stack_description" {
-  description = "The description of the default stack"
-  type        = string
-  default     = ""
-}
-
 variable "stack_label" {
   description = "The label of the default stack"
   type        = string

@@ -1,15 +1,8 @@
-resource "random_string" "project_app_suffix" {
-  length  = 5
-  special = false
-  upper   = false
-}
-
 locals {
   org_domain               = "nematix.com"
   env_name_dev             = "develop"
   env_name_stag            = "staging"
   env_name_prod            = "production"
-  project_id_suffix        = "g1-${random_string.project_app_suffix.result}"
   project_name_prefix_dev  = "${var.app_org_id}-${local.env_name_dev}"
   project_name_prefix_stag = "${var.app_org_id}-${local.env_name_stag}"
   project_name_prefix_prod = "${var.app_org_id}-${local.env_name_prod}"

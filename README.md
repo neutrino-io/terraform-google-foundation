@@ -45,7 +45,6 @@ Please follow the instructions in the following link for the detail process. htt
 | <a name="input_iam_organization_principal"></a> [iam\_organization\_principal](#input\_iam\_organization\_principal) | The principal to grant organization access to | `string` | n/a | yes |
 | <a name="input_org_domain"></a> [org\_domain](#input\_org\_domain) | The domain of the organization | `string` | n/a | yes |
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | The organization id for the associated resources | `string` | n/a | yes |
-| <a name="input_stack_description"></a> [stack\_description](#input\_stack\_description) | The description of the default stack | `string` | `""` | no |
 | <a name="input_stack_label"></a> [stack\_label](#input\_stack\_label) | The label of the default stack | `string` | `""` | no |
 | <a name="input_stack_name"></a> [stack\_name](#input\_stack\_name) | The name of the default stack | `string` | `""` | no |
 

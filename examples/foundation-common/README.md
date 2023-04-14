@@ -16,10 +16,10 @@ No providers.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | n/a | `string` | n/a | yes |
-| <a name="input_iam_billing_principal"></a> [iam\_billing\_principal](#input\_iam\_billing\_principal) | n/a | `string` | n/a | yes |
-| <a name="input_iam_organization_principal"></a> [iam\_organization\_principal](#input\_iam\_organization\_principal) | n/a | `string` | n/a | yes |
-| <a name="input_org_id"></a> [org\_id](#input\_org\_id) | n/a | `string` | n/a | yes |
+| <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The ID of the billing account to associate this project with | `string` | n/a | yes |
+| <a name="input_iam_billing_principal"></a> [iam\_billing\_principal](#input\_iam\_billing\_principal) | The principal to grant the billing role to | `string` | n/a | yes |
+| <a name="input_iam_organization_principal"></a> [iam\_organization\_principal](#input\_iam\_organization\_principal) | The principal to grant the organization role to | `string` | n/a | yes |
+| <a name="input_org_id"></a> [org\_id](#input\_org\_id) | The ID of the organization to create the project in | `string` | n/a | yes |
 
 ## Outputs
 

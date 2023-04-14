@@ -12,7 +12,8 @@ locals {
 }
 
 module "app_project" {
-  source = "terraform-google-modules/project-factory/google"
+  source  = "terraform-google-modules/project-factory/google"
+  version = "~> 14.2"
 
   org_id          = var.org_id
   folder_id       = var.folder_id

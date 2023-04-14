@@ -1,6 +1,6 @@
 # Foundation Stack Example
 
-Example of how to use the Foundation Stack module to deploy a standardize application stack on GCP. After deployment, 
+Example of how to use the Foundation Stack module to deploy a standardize application stack on GCP. After deployment,
 the following key resources will be created:
 
 - Set of folders for the application stack
@@ -15,9 +15,7 @@ the following key resources will be created:
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
+No providers.
 
 ## Inputs
 
