@@ -100,29 +100,36 @@ module "vpc-host-prod" {
 
 # Outputs
 output "logging_project_id" {
-  value = module.logging.project_id
+  value       = module.logging.project_id
+  description = "The project ID of the logging project."
 }
 
 output "monitoring_dev_project_id" {
-  value = module.monitoring-dev.project_id
+  value       = module.monitoring-dev.project_id
+  description = "The project ID of the monitoring development project."
 }
 
 output "monitoring_nonprod_project_id" {
-  value = module.monitoring-nonprod.project_id
+  value       = module.monitoring-nonprod.project_id
+  description = "The project ID of the monitoring non-production project."
 }
 
 output "monitoring_prod_project_id" {
-  value = module.monitoring-prod.project_id
+  value       = module.monitoring-prod.project_id
+  description = "The project ID of the monitoring production project."
 }
 
 output "vpc_host_dev_project_id" {
-  value = module.vpc-host-dev.project_id
+  value       = module.vpc-host-dev.project_id
+  description = "The project ID of the VPC host development project."
 }
 
 output "vpc_host_nonprod_project_id" {
-  value = module.vpc-host-nonprod.project_id
+  value       = module.vpc-host-nonprod.project_id
+  description = "The project ID of the VPC host non-production project."
 }
 
 output "vpc_host_prod_project_id" {
-  value = module.vpc-host-prod.project_id
+  value       = module.vpc-host-prod.project_id
+  description = "The project ID of the VPC host production project."
 }

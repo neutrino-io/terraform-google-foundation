@@ -21,12 +21,15 @@ resource "google_folder" "app-folder-production" {
 # Outputs
 output "folder-development" {
   value = google_folder.app-folder-development
+  description = "The Development folder resource."
 }
 
 output "folder-non-production" {
   value = google_folder.app-folder-non-production
+  description = "The Non-Production folder resource."
 }
 
 output "folder-production" {
   value = google_folder.app-folder-production
+  description = "The Production folder resource."
 }

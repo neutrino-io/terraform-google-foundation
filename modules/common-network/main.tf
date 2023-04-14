@@ -7,8 +7,8 @@ module "vpc-host-dev" {
   network_name = "vpc-host-dev"
   routing_mode = "GLOBAL"
 
+  # Define Development subnets
   subnets = [
-
     {
       subnet_name           = "subnet-dev-1"
       subnet_ip             = "10.26.3.0/24"
@@ -23,10 +23,11 @@ module "vpc-host-dev" {
     },
   ]
 
+  # Define Development routes
   routes = [
     {
       name              = "rt-vpc-host-dev-1000-egress-internet-default"
-      description       = "Tag based route through IGW to access internet"
+      description       = "Tag-based route through IGW to access the internet"
       destination_range = "0.0.0.0/0"
       priority          = "1000"
       next_hop_internet = "true"
@@ -34,7 +35,8 @@ module "vpc-host-dev" {
     },
   ]
 }
-# Firewall Rules
+
+# Development Firewall Rules
 resource "google_compute_firewall" "vpc-host-dev-allow-icmp" {
   name      = "vpc-host-dev-allow-icmp"
   network   = module.vpc-host-dev.network_name
@@ -60,6 +62,7 @@ module "vpc-host-nonprod" {
   network_name = "vpc-host-nonprod"
   routing_mode = "GLOBAL"
 
+  # Define Non-Prod subnets
   subnets = [
     {
       subnet_name           = "subnet-non-prod-1"
@@ -75,10 +78,11 @@ module "vpc-host-nonprod" {
     },
   ]
 
+  # Define Non-Prod routes
   routes = [
     {
       name              = "rt-vpc-host-nonprod-1000-egress-internet-default"
-      description       = "Tag based route through IGW to access internet"
+      description       = "Tag-based route through IGW to access the internet"
       destination_range = "0.0.0.0/0"
       priority          = "1000"
       next_hop_internet = "true"
@@ -86,7 +90,8 @@ module "vpc-host-nonprod" {
     },
   ]
 }
-# Firewall Rules
+
+# Non-Prod Firewall Rules
 resource "google_compute_firewall" "vpc-host-nonprod-allow-icmp" {
   name      = "vpc-host-nonprod-allow-icmp"
   network   = module.vpc-host-nonprod.network_name
@@ -103,7 +108,6 @@ resource "google_compute_firewall" "vpc-host-nonprod-allow-icmp" {
   ]
 }
 
-
 # Production - VPC and Subnets
 module "vpc-host-prod" {
   source  = "terraform-google-modules/network/google"
@@ -113,8 +117,8 @@ module "vpc-host-prod" {
   network_name = "vpc-host-prod"
   routing_mode = "GLOBAL"
 
+  # Define Production subnets
   subnets = [
-
     {
       subnet_name           = "subnet-prod-1"
       subnet_ip             = "10.0.0.0/10"
@@ -129,10 +133,11 @@ module "vpc-host-prod" {
     },
   ]
 
+  # Define Production routes
   routes = [
     {
       name              = "rt-vpc-host-prod-1000-egress-internet-default"
-      description       = "Tag based route through IGW to access internet"
+      description       = "Tag-based route through IGW to access the internet"
       destination_range = "0.0.0.0/0"
       priority          = "1000"
       next_hop_internet = "true"
@@ -140,7 +145,8 @@ module "vpc-host-prod" {
     },
   ]
 }
-# Firewall Rules
+
+# Production Firewall Rules
 resource "google_compute_firewall" "vpc-host-prod-allow-icmp" {
   name      = "vpc-host-prod-allow-icmp"
   network   = module.vpc-host-prod.network_name
@@ -155,4 +161,20 @@ resource "google_compute_firewall" "vpc-host-prod-allow-icmp" {
   source_ranges = [
     "10.128.0.0/9",
   ]
+}
+
+# Terraform output
+output "development_vpc" {
+  description = "Development VPC information"
+  value       = module.vpc-host-dev
+}
+
+output "nonprod_vpc" {
+  description = "Non-Prod VPC information"
+  value       = module.vpc-host-nonprod
+}
+
+output "production_vpc" {
+  description = "Production VPC information"
+  value       = module.vpc-host-prod
 }

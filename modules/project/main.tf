@@ -35,25 +35,25 @@ resource "google_service_account" "service_account_provisioner" {
 # Outputs
 output "project_id" {
   value       = module.app_project.project_id
-  description = "value of the project_id"
+  description = "The ID of the created project."
 }
 
 output "project_name" {
   value       = module.app_project.project_name
-  description = "value of the project_name"
+  description = "The name of the created project."
 }
 
 output "project_number" {
   value       = module.app_project.project_number
-  description = "value of the project_number"
+  description = "The number of the created project."
 }
 
 output "service_account_provisioner_id" {
   value       = google_service_account.service_account_provisioner.id
-  description = "value of the service_account_provisioner_id"
+  description = "The ID of the service account provisioner."
 }
 
 output "service_account_provisioner_email" {
   value       = google_service_account.service_account_provisioner.email
-  description = "value of the service_account_provisioner_email"
+  description = "The email of the service account provisioner."
 }
