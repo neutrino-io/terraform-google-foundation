@@ -3,7 +3,7 @@ module "service_account-iam-bindings" {
   version = "~> 7.4"
 
   service_accounts = [
-    local.sa_provisioner_principle
+    "${local.sa_provisioner_id}@${local.project_id}.iam.gserviceaccount.com"
   ]
   project = module.app_project.project_id
   mode    = "authoritative"
