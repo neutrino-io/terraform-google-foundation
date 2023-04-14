@@ -23,7 +23,9 @@ No providers.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_org_id"></a> [org\_id](#output\_org\_id) | Outputs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## License

@@ -82,13 +82,16 @@ module "foundation-stack-project-production" {
 
 # Foundation outputs
 output "foundation-stack-project-develop" {
-  value = module.foundation-stack-project-develop
+  value       = module.foundation-stack-project-develop
+  description = "Development project"
 }
 
 output "foundation-stack-project-staging" {
-  value = module.foundation-stack-project-staging
+  value       = module.foundation-stack-project-staging
+  description = "Staging project"
 }
 
 output "foundation-stack-project-production" {
-  value = module.foundation-stack-project-production
+  value       = module.foundation-stack-project-production
+  description = "Production project"
 }

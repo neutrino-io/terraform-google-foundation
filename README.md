@@ -59,6 +59,8 @@ Please follow the instructions in the following link for the detail process. htt
 | <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | The foundation stack project for the development environment module resource. |
 | <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | The foundation stack project for the production environment module resource. |
 | <a name="output_foundation-stack-project-staging"></a> [foundation-stack-project-staging](#output\_foundation-stack-project-staging) | The foundation stack project for the staging environment module resource. |
+| <a name="output_org_domain"></a> [org\_domain](#output\_org\_domain) | The organization domain. |
+| <a name="output_org_id"></a> [org\_id](#output\_org\_id) | The organization ID. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Problem & Solutions

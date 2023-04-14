@@ -6,3 +6,8 @@ module "google_foundation" {
   iam_organization_principal = var.iam_organization_principal
   org_domain                 = "neutrino.sh"
 }
+
+# Outputs
+output "org_id" {
+  value = module.google_foundation.org_id
+}

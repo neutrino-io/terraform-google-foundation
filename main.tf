@@ -132,6 +132,16 @@ module "foundation-stack-project-production" {
 
 
 # Outputs
+output "org_id" {
+  value       = var.org_id
+  description = "The organization ID."
+}
+
+output "org_domain" {
+  value       = local.org_domain
+  description = "The organization domain."
+}
+
 output "common-project" {
   value       = module.common-project
   description = "The common project module resource."
