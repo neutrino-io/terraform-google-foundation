@@ -15,6 +15,7 @@
 ## Post Deployment
 - Manually enable the Identity Platform API in the GCP console at https://console.cloud.google.com/customer-identity
 - Running post foundation setup script `PROJECT_ID=neutrino-develop-g1-f1f1f ACCOUNT_EMAIL=user@neutrino.sh IAP_SUPPORT_EMAIL=support@neutrino.sh APP_ORG_LABEL="Neutrino" ./foundation-post.sh`
+- The OAuth client ID & secret from `post-foundation` script output is required to be used in "Infra" project, please take a note of it.
 
 ## Deploying in Terraform Cloud
 
