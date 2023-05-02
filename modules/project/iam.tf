@@ -85,6 +85,9 @@ module "service_account-project-iam-bindings" {
     "roles/iam.workloadIdentityUser" = [
       local.sa_provisioner_principle,
     ],
+    "roles/iam.serviceAccountKeyAdmin" = [
+      local.sa_provisioner_principle,
+    ],
   }
 
   depends_on = [
