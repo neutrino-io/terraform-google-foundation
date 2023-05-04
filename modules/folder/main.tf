@@ -19,6 +19,11 @@ resource "google_folder" "app-folder-production" {
 }
 
 # Outputs
+output "folder-organizations" {
+  value       = google_folder.app-folder
+  description = "The Organisation folder resource."
+}
+
 output "folder-development" {
   value       = google_folder.app-folder-development
   description = "The Development folder resource."
