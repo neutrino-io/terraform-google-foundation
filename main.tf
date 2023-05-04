@@ -142,6 +142,11 @@ output "org_domain" {
   description = "The organization domain."
 }
 
+output "common_folder" {
+  value       = google_folder.common
+  description = "The Common folder resource."
+}
+
 output "common-project" {
   value       = module.common-project
   description = "The common project module resource."
