@@ -33,7 +33,7 @@ Please follow the instructions in the following link for the detail process. htt
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.61.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.69.1 |
 
 ## Inputs
 
@@ -55,6 +55,7 @@ Please follow the instructions in the following link for the detail process. htt
 |------|-------------|
 | <a name="output_common-network"></a> [common-network](#output\_common-network) | The common network module resource. |
 | <a name="output_common-project"></a> [common-project](#output\_common-project) | The common project module resource. |
+| <a name="output_common_folder"></a> [common\_folder](#output\_common\_folder) | The Common folder resource. |
 | <a name="output_foundation-stack-folder"></a> [foundation-stack-folder](#output\_foundation-stack-folder) | The foundation stack folder module resource. |
 | <a name="output_foundation-stack-project-develop"></a> [foundation-stack-project-develop](#output\_foundation-stack-project-develop) | The foundation stack project for the development environment module resource. |
 | <a name="output_foundation-stack-project-production"></a> [foundation-stack-project-production](#output\_foundation-stack-project-production) | The foundation stack project for the production environment module resource. |

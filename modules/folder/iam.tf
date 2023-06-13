@@ -25,6 +25,11 @@ module "app-development-folder-iam" {
     "roles/bigquery.user" = [
       var.iam_developer_principle,
     ]
+
+    "roles/dns.admin" = [
+      var.iam_developer_principle,
+    ],
+
   }
 }
 
